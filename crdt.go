@@ -27,6 +27,12 @@ func (set *CRDT) Add(item interface{}) {
 	set.crdt[item] = struct{}{}
 }
 
+func (set *CRDT) Remove(item interface{}) {
+	set.lock.Lock()
+	defer set.lock.Unlock()
+	delete(set.crdt, item)
+}
+
 func (set *CRDT) Size() int {
 	set.lock.RLock()
 	defer set.lock.RUnlock()
