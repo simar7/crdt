@@ -1,4 +1,4 @@
-package crdtgo
+package crdt
 
 import (
 	"fmt"
