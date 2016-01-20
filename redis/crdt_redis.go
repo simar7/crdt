@@ -22,13 +22,25 @@ func Add(value int, elemName string) string {
 	return resp.String()
 }
 
-func PrintAll(minValue int, maxValue int, constraints string) {
+func Remove(value int, elemName string) string {
+	resp := client.Cmd(fmt.Sprintf("ZREM"), zset, value, elemName)
+	if resp.Err != nil {
+		log.Fatal(fmt.Sprintf("Command failed: %s\n", resp.Err))
+	} else {
+		fmt.Printf("%s\n", resp.String())
+	}
+	return resp.String()
+}
+
+func PrintAll(minValue int, maxValue int, constraints string) string {
 	resp := client.Cmd(fmt.Sprintf("ZRANGE"), zset, minValue, maxValue, constraints)
 	if resp.Err != nil {
 		log.Fatal(fmt.Sprintf("Command failed: %s\n", resp.Err))
 	} else {
 		fmt.Printf("%s\n", resp.String())
 	}
+
+	return resp.String()
 }
 
 func checkInput() {

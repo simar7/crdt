@@ -22,8 +22,26 @@ func init() {
 
 func TestAdd(t *testing.T) {
 
-	expected := "Resp(Int 0)"
+	expected := "Resp(Int 1)"
 	actual := Add(4, "mysql")
+	if actual != expected {
+		t.Errorf("TestAdd failed\n Expected Value: %s \n Actual Value: %s", expected, actual)
+	}
+}
+
+func TestRemove(t *testing.T) {
+
+	expected := "Resp(Int 1)"
+	actual := Remove(4, "mysql")
+	if actual != expected {
+		t.Errorf("TestAdd failed\n Expected Value: %s \n Actual Value: %s", expected, actual)
+	}
+}
+
+func TestPrintAll(t *testing.T) {
+
+	expected := "Resp()"
+	actual := PrintAll(0, 10, "WITHSCORES")
 	if actual != expected {
 		t.Errorf("TestAdd failed\n Expected Value: %s \n Actual Value: %s", expected, actual)
 	}
