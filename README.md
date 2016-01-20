@@ -1,4 +1,6 @@
-# crdt
+[![GoDoc](https://godoc.org/github.com/simar7/crdt?status.svg)](https://godoc.org/github.com/simar7/crdt)
+
+# crdt 
 A CRDT for LWW (Last-Writer-Wins) element set implementation in Go.
 
 ####  Prerequisites    
